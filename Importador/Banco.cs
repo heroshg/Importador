@@ -2,9 +2,22 @@
 {
     public static List<Contrato> listaContratos { get; } = new List<Contrato>();   
 
-    public static void SalvarContrato(Contrato contrato)
+    
+
+    public static void SalvarLoteDeContratos(List<Contrato> listaContratosEmLote)
     {
-        listaContratos.Add(contrato);
+        try
+        {
+            foreach( var contrato in listaContratosEmLote)
+            {
+                listaContratos.Add(contrato);
+            }
+            Console.WriteLine("Arquivos em lote importados com sucesso!");
+
+        } catch(Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
     }
 
     public static void GetContratos()
